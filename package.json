@@ -1,5 +1,7 @@
 {
   "name": "ratebeer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "postgresql": "0.0.1"
+  }
 }
