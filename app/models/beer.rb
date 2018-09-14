@@ -6,4 +6,8 @@ class Beer < ApplicationRecord
 		"Has #{self.ratings.length} #{"rating".pluralize(self.ratings.length)}, avegage #{self.ratings.sum { |r| r.score }/self.ratings.length}"
 	end
 
+	def to_s
+		"#{self.name} #{self.brewery.name}"
+	end
+
 end
