@@ -24,6 +24,10 @@ Style/PercentLiteralDelimiters:
     '%w': '()'
     '%W': '()'
 
+Metrics/MethodLength:
+  Enabled: true
+  Max: 15
+
 Style/FormatString:
   EnforcedStyle: percent
 
