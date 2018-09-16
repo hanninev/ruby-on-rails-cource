@@ -1,5 +1,3 @@
-require 'concerns/RatingAverage'
-
 class Beer < ApplicationRecord
   include RatingAverage
 
