@@ -17,5 +17,14 @@
  <% end %>
 </ul>
 
+<h3>Beer Clubs</h3>
+<p>
+<ul>
+  <% @user.beer_clubs.each do |beer_club| %>
+    <%= link_to beer_club, beer_club %>
+  <% end %>
+</ul>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

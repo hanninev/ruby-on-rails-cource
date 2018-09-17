@@ -7,4 +7,7 @@ class User < ApplicationRecord
                        length: { minimum: 3, maxinum: 50 }
 
   has_many :ratings
+  has_many :membership
+  has_many :beers, through: :ratings
+  has_many :beer_clubs, through: :membership
 end
