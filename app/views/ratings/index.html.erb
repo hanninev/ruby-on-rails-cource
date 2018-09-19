@@ -10,4 +10,6 @@
  <% end %>
 </ul>
 
+<% if !current_user.nil? %>
 <%= link_to "New raiting", new_rating_path %>
+<% end %>

@@ -22,7 +22,7 @@
 <% if @brewery.ratings.empty? %>
   brewery has not yet been rated!
 <% else %>
-  <%= @brewery.average_rating %>
+  <%= %"Has #{@brewery.ratings.length} #{'rating'.pluralize(@brewery.ratings.length)}, avegage #{@brewery.average_rating}" %>
 <% end %>
 </p>
 

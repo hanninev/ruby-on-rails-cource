@@ -7,7 +7,7 @@
 <% if @user.ratings.empty? %>
  user has not yet given rates!
 <% else %>
-  <%= @user.user_average_rating %>
+  <%= %"Has made #{@user.ratings.length} #{'rating'.pluralize(@user.ratings.length)}, avegage #{@user.average_rating}" %>
 <% end %>
 </p>
 
