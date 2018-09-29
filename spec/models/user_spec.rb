@@ -10,19 +10,22 @@ RSpec.describe User, type: :model do
   end
 
   it "is not saved without a password" do
+    before = User.count
     user = User.create username:"Pekka"
 
     expect(user).not_to be_valid
-    expect(User.count).to eq(0)
+    expect(User.count).to eq(before)
   end
 
   it "is not saved with too short or invalid password" do
+    before = User.count
+
     lowerCasePassword = User.create username:"Pekka", password:"secret", password_confirmation:"secret"
     tooShortPassword = User.create username:"Pekka", password:"Se1", password_confirmation:"Se1"
 
     expect(lowerCasePassword).not_to be_valid
     expect(tooShortPassword).not_to be_valid
-    expect(User.count).to eq(0)
+    expect(User.count).to eq(before)
   end
 
   describe "favorite beer" do
@@ -56,8 +59,10 @@ RSpec.describe User, type: :model do
     let(:user) { FactoryBot.create(:user) }
   
     it "is saved" do
+      before = User.count
+
       expect(user).to be_valid
-      expect(User.count).to eq(1)
+      expect(User.count).to eq(before + 1)
     end
   
     it "and with two ratings, has the correct average rating" do

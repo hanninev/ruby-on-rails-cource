@@ -1,9 +1,17 @@
+
 require 'rails_helper'
 
 include Helpers
 
 describe "User" do
-  let!(:user) { FactoryBot.create :user }
+    before :each do
+        @user = FactoryBot.create :user
+        @user2 = FactoryBot.create :user, username:"Jaakko"
+
+        FactoryBot.create :rating, score:22, user:@user
+        FactoryBot.create :rating, score:26, user:@user
+        FactoryBot.create :rating, score:24, user:@user2
+    end
 
   describe "who has signed up" do
     it "can signin with right credentials" do
@@ -33,15 +41,19 @@ describe "User" do
   end
 
   it "lists the own ratings" do
-    user2 = FactoryBot.create :user, username:"Janne"
-
-    FactoryBot.create :rating, score:22, user:user
-    FactoryBot.create :rating, score:26, user:user
-    FactoryBot.create :rating, score:24, user:user2
-
-    visit user_path(user)
-    user.ratings.each do |rating|
+    visit user_path(@user)
+    @user.ratings.each do |rating|
       expect(page).to have_content rating.score
     end
   end
+
+  it "can delete their own ratings" do
+    sign_in(username: "Pekka", password: "Foobar1")
+    visit user_path(@user)
+
+    expect{
+        click_link('delete', match: :first)
+    }.to change{@user.ratings.count}.by(-1)
+  end
+  
 end
