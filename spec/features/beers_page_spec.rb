@@ -4,8 +4,11 @@ include Helpers
 
 describe "Beer" do
   let!(:brewery) { FactoryBot.create :brewery }
+  let!(:user) { FactoryBot.create :user }
 
   it "can be added when name is a valid." do
+    sign_in(username: "Pekka", password: "Foobar1")
+
     visit new_beer_path
     fill_in('beer[name]', with:'testiolut')
 
@@ -15,6 +18,8 @@ describe "Beer" do
   end
 
   it "can't be added when name is a invalid and an error message is given." do
+    sign_in(username: "Pekka", password: "Foobar1")
+
     visit new_beer_path
     fill_in('beer[name]', with:'')
 
