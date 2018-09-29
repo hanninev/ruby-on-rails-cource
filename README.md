@@ -3,4 +3,4 @@
 
 # Ruby on rails -kurssin sovellus
 
-https://mighty-gorge-54767.herokuapp.com/breweries
+https://ruby-on-rails-cource.herokuapp.com/
