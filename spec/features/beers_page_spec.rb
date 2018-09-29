@@ -14,7 +14,7 @@ describe "Beer" do
     }.to change{Beer.count}.from(0).to(1)
   end
 
-  it "can't be added when name is a invalid." do
+  it "can't be added when name is a invalid and an error message is given." do
     visit new_beer_path
     fill_in('beer[name]', with:'')
 
