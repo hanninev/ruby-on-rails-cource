@@ -74,6 +74,32 @@
         null,
         2,
         null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
         null
       ],
       "/home/hanninev/ratebeer/app/models/brewery.rb": [
@@ -117,7 +143,7 @@
         1,
         null,
         1,
-        155,
+        167,
         null,
         105,
         null,
@@ -402,6 +428,48 @@
         1,
         0,
         null,
+        null
+      ],
+      "/home/hanninev/ratebeer/lib/beermapping_api.rb": [
+        1,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/hanninev/ratebeer/app/models/place.rb": [
+        1,
+        1,
+        5,
+        null,
+        null
+      ],
+      "/home/hanninev/ratebeer/app/controllers/places_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        3,
+        3,
+        1,
+        null,
+        2,
+        null,
         null,
         null
       ],
@@ -568,6 +636,6 @@
         0
       ]
     },
-    "timestamp": 1538230506
+    "timestamp": 1538750553
   }
 }
