@@ -17,6 +17,11 @@ class BeermappingApi
         Place.new(place)
       end
     end
+
+    def self.get_place(city, id)
+        places = get_places_in(city)
+        return places.find(:id).first
+      end
   
     def self.key
       "8d58f9e92fe8b17867ac736fba89c48b"
