@@ -8,6 +8,7 @@ class PlacesController < ApplicationController
     end
   
     def search
+      @weather = WeatherApi.get_weather_in(params[:city])
       @places = BeermappingApi.places_in(params[:city])
       session[:city] = params[:city]
 
