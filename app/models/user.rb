@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
     ratings.order(score: :desc).limit(1).first.beer
   end
-  
+
   def average_of(ratings)
     ratings.sum(&:score).to_f / ratings.count
   end
