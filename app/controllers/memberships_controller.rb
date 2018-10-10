@@ -24,8 +24,10 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    rating = Rating.find(params[:id])
-    rating.delete
-    redirect_to user_path(current_user)
+    @membership.destroy
+    respond_to do |format|
+      format.html { redirect_to @membership.user, notice: "Membership in #{@membership.beer_club.name} ended" }
+      format.json { head :no_content }
+    end
   end
 end
