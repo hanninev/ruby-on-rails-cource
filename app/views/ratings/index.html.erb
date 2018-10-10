@@ -7,15 +7,23 @@
  <div class="row">
     <div class="col-sm">
     <h3>Best beers</h3>
-    <%= render 'list', items: @best_beers %>
+    <%= render 'average_list', items: @best_beers %>
     </div>
     <div class="col-sm">
     <h3>Best breweries</h3>
-    <%= render 'list', items: @best_breweries %>
+    <%= render 'average_list', items: @best_breweries %>
+    </div>
+</div>
+
+ <div class="row">
+    <div class="col-sm">
+    <%= render 'average_list', items: @best_styles %>
     </div>
     <div class="col-sm">
+    <%= render 'count_list', items: @most_ratings %>
     </div>
-    </div>
+</div>
+
 <b>recent ratings</b>
 <ul>
  <% @last_three.each do |rating| %>
