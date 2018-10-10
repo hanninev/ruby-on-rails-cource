@@ -4,9 +4,22 @@
 
 <p> Number of ratings: <%= @ratings.count %> </p>
 
+ <div class="row">
+    <div class="col-sm">
+    <h3>Best beers</h3>
+    <%= render 'list', items: @best_beers %>
+    </div>
+    <div class="col-sm">
+    <h3>Best breweries</h3>
+    <%= render 'list', items: @best_breweries %>
+    </div>
+    <div class="col-sm">
+    </div>
+    </div>
+<b>recent ratings</b>
 <ul>
- <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
+ <% @last_three.each do |rating| %>
+    <li> <%= rating.beer.name %> by <%= link_to rating.user.username, rating.user %> at <%= rating.created_at %></li>
  <% end %>
 </ul>
 

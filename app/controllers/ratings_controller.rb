@@ -1,6 +1,9 @@
 class RatingsController < ApplicationController
   def index
     @ratings = Rating.all
+    @best_beers = Beer.all.reject{|b| b.ratings.empty?}.sort_by{|b| -b.average_rating }.first(3)
+    @best_breweries = Brewery.all.reject{|b| b.ratings.empty?}.sort_by{|b| -b.average_rating }.first(3)
+    @last_three = Rating.all.last(3)
   end
 
   def new
