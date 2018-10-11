@@ -1,5 +1,7 @@
 <p id="notice"></p>
 
+<% cache 'ratingslist', expires_in:10.minutes, skip_digest: true do %>
+
 <h2>List of ratings</h2>
 
 <p> Number of ratings: <%= @ratings.count %> </p>
@@ -32,6 +34,8 @@
     <li> <%= rating.beer.name %> by <%= link_to rating.user.username, rating.user %> at <%= rating.created_at %></li>
  <% end %>
 </ul>
+
+<% end %>
 
 <% if !current_user.nil? %>
 <%= link_to "New raiting", new_rating_path %>
