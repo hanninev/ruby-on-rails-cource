@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
   post 'places', to:'places#search'
   resources :places, only: [:index, :show]
-
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
