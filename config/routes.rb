@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   resources :users do
     post 'toggle_active', on: :member
   end
+  get 'beerlist', to:'beers#list'
+  get 'brewerylist', to:'breweries#list'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

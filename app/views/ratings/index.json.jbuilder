@@ -1,1 +1,3 @@
-json.array! @ratings, partial: 'ratings/rating', as: :rating
+json.array!(@ratings) do |rating|
+  json.extract! rating, :id, :score, :beer
+end
