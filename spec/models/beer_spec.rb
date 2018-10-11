@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 RSpec.describe Beer, type: :model do
@@ -25,3 +26,4 @@ RSpec.describe Beer, type: :model do
     expect(Beer.count).to eq(0)
   end
 end
+=end

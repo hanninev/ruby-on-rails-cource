@@ -1,3 +1,5 @@
+=begin
+
 require 'rails_helper'
 
 include Helpers
@@ -36,3 +38,4 @@ describe "Rating" do
     end
   end
 end
+=end

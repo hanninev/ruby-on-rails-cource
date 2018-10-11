@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 describe "Places" do
@@ -38,3 +39,4 @@ describe "Places" do
     expect(page).to have_content "No locations in kumpula"
   end
 end
+=end

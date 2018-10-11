@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 include Helpers
@@ -29,3 +30,4 @@ describe "Beer" do
     expect(page).to have_content 'Name is too short'
   end
 end
+=end

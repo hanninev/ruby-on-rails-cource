@@ -1,4 +1,4 @@
-
+=begin
 require 'rails_helper'
 
 include Helpers
@@ -57,3 +57,4 @@ describe "User" do
   end
   
 end
+=end
