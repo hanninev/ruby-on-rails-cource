@@ -4,7 +4,7 @@ class RatingsController < ApplicationController
     @best_beers = Beer.all.reject{ |b| b.ratings.empty? }.sort_by{ |b| -b.average_rating }.first(3)
     @best_breweries = Brewery.all.reject{ |b| b.ratings.empty? }.sort_by{ |b| -b.average_rating }.first(3)
     @best_styles = Style.all.reject{ |b| b.ratings.empty? }.sort_by{ |b| -b.average_rating }.first(3)
-    @most_ratings = User.all.reject{|b| b.ratings.empty?}.sort_by{|b| -b.ratings.count }.first(3)
+    @most_ratings = User.all.reject{ |b| b.ratings.empty? }.sort_by{ |b| -b.ratings.count }.first(3)
     @last_three = Rating.all.last(3)
   end
 

@@ -7,7 +7,7 @@ class WeatherApi
 
     response = HTTParty.get "#{url}#{ERB::Util.url_encode(city)}"
 
-    return JSON.parse(response.body)
+    JSON.parse(response.body)
   end
 
   def self.key
