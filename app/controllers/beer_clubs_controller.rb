@@ -7,22 +7,22 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs.json
   def index
     @beer_clubs = BeerClub.all
-  
+
     order = params[:order] || 'name'
-  
+
     @beer_clubs = case order
-      when 'name' then @beer_clubs.sort_by{ |b| b.name }
-      when 'founded' then @beer_clubs.reject{ |b| b.founded.nil? }.sort_by{ |b| b.founded }
-      when 'city' then @beer_clubs.reject{ |b| b.city.nil? }.sort_by{ |b| b.city }
-    end
+                  when 'name' then @beer_clubs.sort_by(&:name)
+                  when 'founded' then @beer_clubs.reject{ |b| b.founded.nil? }.sort_by(&:founded)
+                  when 'city' then @beer_clubs.reject{ |b| b.city.nil? }.sort_by(&:city)
+                  end
   end
 
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
     @memberships = Membership.all.where(beer_club_id: @beer_club.id)
-    @confirmed_members = @beer_club.membership.reject{ |m| m.confirmed.nil? }.map{ |m| m.user }
-    @applications = @beer_club.membership.reject{ |m| m.confirmed? }.map{ |m| m.user }
+    @confirmed_members = @beer_club.membership.reject{ |m| m.confirmed.nil? }.map(&:user)
+    @applications = @beer_club.membership.reject(&:confirmed?).map(&:user)
 
     if @beer_club.users.include? current_user
       @membership = @beer_club.membership.where(user_id: current_user.id).first
