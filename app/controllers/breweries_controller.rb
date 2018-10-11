@@ -14,6 +14,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/1
   # GET /breweries/1.json
   def show
+    expire_fragment('cache_key_with_version')
   end
 
   # GET /breweries/new
@@ -29,6 +30,7 @@ class BreweriesController < ApplicationController
   # POST /breweries.json
   def create
     expire_fragment('brewerylist')
+    expire_fragment('beerlist')
     @brewery = Brewery.new(brewery_params)
 
     respond_to do |format|
@@ -46,6 +48,7 @@ class BreweriesController < ApplicationController
   # PATCH/PUT /breweries/1.json
   def update
     expire_fragment('brewerylist')
+    expire_fragment('beerlist')
     respond_to do |format|
       if @brewery.update(brewery_params)
         format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }
@@ -61,6 +64,7 @@ class BreweriesController < ApplicationController
   # DELETE /breweries/1.json
   def destroy
     expire_fragment('brewerylist')
+    expire_fragment('beerlist')
     @brewery.destroy
     respond_to do |format|
       format.html { redirect_to breweries_url, notice: 'Brewery was successfully destroyed.' }

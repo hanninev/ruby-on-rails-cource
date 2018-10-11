@@ -28,6 +28,7 @@ class BeersController < ApplicationController
   # GET /beers/1
   # GET /beers/1.json
   def show
+    expire_fragment('cache_key_with_version')
     @rating = Rating.new
     @rating.beer = @beer
   end
