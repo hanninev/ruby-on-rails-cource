@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @confirmed_memberships = @user.membership.reject{ |m| m.confirmed.nil? }.map{ |m| m.beer_club }
+    @applications = @user.membership.reject{ |m| m.confirmed? }.map{ |m| m.beer_club }
   end
 
   # GET /users/new
