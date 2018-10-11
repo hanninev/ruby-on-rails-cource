@@ -8,7 +8,7 @@ Founded <%= @beer_club.founded %>
 
 <h3>Members</h3>
 <p>
- <% @beer_club.users.each do |user| %>
+ <% @confirmed_members.each do |user| %>
    <li><%= link_to user.username, user %></li>
  <% end %>
 </p>
@@ -25,6 +25,15 @@ Founded <%= @beer_club.founded %>
       <%= f.submit value: "join the club" %>
     <% end %>
   <% end %>
+<% end %>
+
+<% if @confirmed_members.include?(current_user) %>
+<h3>Outstanding applications</h3>
+<p>
+ <% @applications.each do |user| %>
+   <li><%= link_to user.username, user %><%= link_to "confirm", toggle_confirm_membership_path(@memberships.where(user_id: user.id).first), method: :post, class: "btn btn-success" %></li>
+ <% end %>
+</p>
 <% end %>
 
 <%= link_to 'Edit', edit_beer_club_path(@beer_club) if current_user %> |
