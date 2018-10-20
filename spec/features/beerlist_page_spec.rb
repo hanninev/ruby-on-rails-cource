@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 describe "Beerlist page" do
@@ -55,3 +56,4 @@ describe "Beerlist page" do
     expect(find('table').find('tr:nth-child(4)')).to have_content "Fastenbier"
   end
 end
+=end
