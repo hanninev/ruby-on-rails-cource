@@ -18,7 +18,7 @@
         <td><%= user.beers.size %></td>
         <td><%= user.ratings.size %></td>
         <td>
-          <% if current_user.admin? && user.closed.nil? %>
+          <% if current_user && current_user.admin? && user.closed.nil? %>
             <span class="label label-info">account frozen</span>
           <% end %>
         </td>
