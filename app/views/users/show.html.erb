@@ -8,7 +8,7 @@
   </h2>
 </p>
 
-<% if current_user.admin? %>
+<% if current_user && current_user.admin? %>
   <% if @user.closed? %>
     <%= link_to "open account", toggle_active_user_path(@user.id), method: :post, class: "btn btn-success" %>
   <% else %>
