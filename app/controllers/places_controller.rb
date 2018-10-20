@@ -20,6 +20,6 @@ class PlacesController < ApplicationController
   end
 
   def set_place
-    @place = BeermappingApi.get_place(session[:city], params[:id])
+    @place = BeermappingApi.get_place(session[:city])
   end
 end
