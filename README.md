@@ -3,4 +3,4 @@
 
 # Ruby on rails -kurssin sovellus
 
-https://ruby-on-rails-cource.herokuapp.com/
+https://ratebeer12.herokuapp.com/
